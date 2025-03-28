@@ -1,0 +1,4 @@
+2025-03-28 12:35:13,326 - poem_trainer - INFO - Starting epoch 1/30
+2025-03-28 12:35:13,377 - poem_trainer - INFO - batch_num: 348
+2025-03-28 12:35:14,094 - poem_trainer - INFO - Model saved at batch 0
+2025-03-28 12:35:38,116 - poem_trainer - INFO - Model saved at batch 20
