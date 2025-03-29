@@ -21,7 +21,7 @@ def setup_logger(log_dir:str):
     logger.setLevel(logging.INFO)
 
     log_filename = os.path.join(log_dir, f"training_log_{datetime.now().strftime('%Y%m%d%H%M%S')}.log")
-    file_handler = logging.FileHandler(log_filename)
+    file_handler = logging.FileHandler(log_filename,encoding='utf-8')
     file_handler.setLevel(logging.INFO)
 
     console_hanler = logging.StreamHandler()
@@ -221,6 +221,7 @@ def pretty_print_poem(poem):  # 令打印的结果更工整
     for s in poem_sentences:
         if s != '' and len(s) > 10:
             print(s + '。')
+            logger.info(s+"。")
 
 
 def gen_poem(begin_word):
@@ -249,10 +250,10 @@ def gen_poem(begin_word):
     return poem
 
 
+logger.info("训练阶段")
+run_training()  # 如果不是训练阶段 ，请注销这一行 。 网络训练时间很长。
 
-#run_training()  # 如果不是训练阶段 ，请注销这一行 。 网络训练时间很长。
-
-#logger.info("推理阶段")
+logger.info("推理阶段")
 pretty_print_poem(gen_poem("日"))
 pretty_print_poem(gen_poem("红"))
 pretty_print_poem(gen_poem("山"))
